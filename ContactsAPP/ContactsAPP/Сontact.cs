@@ -33,6 +33,7 @@ namespace ContactsAPP
         /// <summary>
         /// Имя
         /// </summary>
+        /// <exception cref="ArgumentException"></exception>
         [JsonProperty]
         public string Name
         {
@@ -47,14 +48,14 @@ namespace ContactsAPP
 
                 while (i < value.Length)
                 {
-                    if ((value[i] < 'A') || (value[i] > 'z') || (value[i] > 'Z' && value[i] < 'a'))
+                    if ((value[i] < 'А') || (value[i] > 'я') || (value[i] > 'Я' && value[i] < 'а'))
                     {
                         throw new ArgumentException("Имя должно содержать только буквы.");
                     }
                     i++;
                 }
                 i = 0;
-                if (value[i] >= 'a' && value[i] <= 'z')
+                if (value[i] >= 'а' && value[i] <= 'я')
                 {
                     throw new ArgumentException("Имя должно начинаться с заглавной буквы.");
                 }
@@ -80,14 +81,14 @@ namespace ContactsAPP
 
                 while (i < value.Length)
                 {
-                    if ((value[i] < 'A') || (value[i] > 'z') || (value[i] > 'Z' && value[i] < 'a'))
+                    if ((value[i] < 'А') || (value[i] > 'я') || (value[i] > 'я' && value[i] < 'А'))
                     {
                         throw new ArgumentException("Фамилия должна содержать только буквы.");
                     }
                     i++;
                 }
                 i = 0;
-                if (value[i] >= 'a' && value[i] <= 'z')
+                if (value[i] >= 'а' && value[i] <= 'я')
                 {
                     throw new ArgumentException("Фамилия должна начинаться с заглавной буквы.");
                 }
