@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
-using ContactsAPP;
 using Newtonsoft.Json;
 
 namespace ContactsAPPUI
@@ -22,57 +21,83 @@ namespace ContactsAPPUI
             InitializeComponent();
             this.Text = "Главное окно программы";
             this.Size = new Size(400, 250);
-            var project = new Project();
+            this.Location = new Point(150, 150);
+            ColorComboBox.Items.Add(Color.Red);
+            ColorComboBox.Items.Add(Color.Green);
+            ColorComboBox.Items.Add(Color.Blue);
+            ColorComboBox.Items.Add(Color.White);
+            ColorComboBox.SelectedIndex = 1;
 
+            /*//Создаем кнопку
+            var button = new Button();
+            button.Text = "Сменить заголовок окна";
+            button.Size = new Size(150, 25);
+            button.Location = new Point(150, 150);
+
+            //Подписываем кнопку на обработчик
+            button.Click += Button_Click;
+            //Помещаем кнопку на форму
+            this.Controls.Add(button);*/
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        //Обработчик события нажатия кнопки
+        private void Button_Click(object sender, EventArgs e)
         {
-
+            //Здесь пишем код, который должен выполняться
+            //Каждый раз при нажатии на кнопку.
+            this.Text = "Новый заголовок";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Contact firstContact = new Contact();
-            //firstContact.Name = "Alex";
-            //firstContact.Birth = DateTime.Today;
-            //firstContact.Sername = "Ivanov";
-            //firstContact.Email = "some@email.ru";
-            //firstContact.IdVk = "123456789";
-
-
-            //ProjectManager.SaveToFile( ProjectManager.DocumentsPath);
-            //JsonSerializer serializer = new JsonSerializer();
-
-            ////Открываем поток для записи в файл с указанием пути
-            //using (StreamWriter sw = new StreamWriter(@"C:\Users\Денис\json.txt"))
-            //using (JsonWriter writer = new JsonTextWriter(sw))
-            //{
-            //    //Вызываем сериализацию и передаем объект, который хотим сериализовать
-            //    serializer.Serialize(writer, firstContact);
-            //}
-
-            Contact secondContact = null;
-            //Создаём экземпляр сериализатора
-            JsonSerializer serializer = new JsonSerializer();
-            //Открываем поток для чтения из файла с указанием пути
-            using (StreamReader sr = new StreamReader(@"C:\Users\Денис\json.txt"))
-            using (JsonReader reader = new JsonTextReader(sr))
-            {
-                //Вызываем десериализацию и явно преобразуем результат в целевой тип данных
-                secondContact = (Contact)serializer.Deserialize<Contact>(reader);
-            }
-
-            Console.WriteLine(secondContact.Name);
-            Console.WriteLine(secondContact.Sername);
-            Console.WriteLine(secondContact.Birth);
-            Console.WriteLine(secondContact.Email);
-            //Console.WriteLine(secondContact.Phone);
-
-
-
-
 
         }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Получаем текст из текстового поля
+            // в переменную типа string
+            string text = NumberTextBox.Text;
+            int number;
+            if (int.TryParse(text, out number))
+            {
+                if (number >= 0 && number <= 100)
+                {
+                    NumberTextBox.BackColor = Color.White;
+                    this.Text = number.ToString();
+                }
+                else
+                {
+                    NumberTextBox.BackColor = Color.LightSalmon;
+                }
+            }
+            else
+            {
+                NumberTextBox.BackColor = Color.LightSalmon;
+            }
+        }
+
+        private void ColorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ColorComboBox.SelectedIndex == -1)
+            {
+                //Если ничего не выбрано, завершаем обработчик
+                return;
+            }
+            Color selectedColor;
+            selectedColor = (Color)ColorComboBox.SelectedItem;
+            this.BackColor = selectedColor;
+        }
+
+        private void VisibilityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = VisibilityCheckBox.Checked;
+            ColorComboBox.Visible = isChecked;
+        }
     }
+
 }

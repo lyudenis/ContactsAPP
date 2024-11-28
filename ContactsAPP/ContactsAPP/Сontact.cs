@@ -180,10 +180,10 @@ namespace ContactsAPP
         }
 
 
-        /// <summary>
-        /// Клонирование
-        /// </summary>
-        /// <returns></returns>
+        ///// <summary>
+        ///// Клонирование
+        ///// </summary>
+        ///// <returns></returns>
         public object Clone()
         {
             return new Contact
