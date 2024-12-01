@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ContactsAPPUI.Properties
+namespace ContactsApp.Properties
 {
 
 

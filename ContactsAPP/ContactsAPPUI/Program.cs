@@ -1,11 +1,11 @@
-﻿using ContactsAPPUI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp;
 
-namespace ContactsAppUI
+namespace ContactsApp
 {
     static class Program
     {
@@ -15,7 +15,6 @@ namespace ContactsAppUI
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

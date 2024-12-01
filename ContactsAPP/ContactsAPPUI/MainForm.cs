@@ -3,101 +3,235 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
-using Newtonsoft.Json;
 
-namespace ContactsAPPUI
+namespace ContactsApp
 {
     public partial class MainForm : Form
     {
+        // Создаем список контактов.
+        //
+        private Project _project;
         public MainForm()
         {
             InitializeComponent();
-            this.Text = "Главное окно программы";
-            this.Size = new Size(400, 250);
-            this.Location = new Point(150, 150);
-            ColorComboBox.Items.Add(Color.Red);
-            ColorComboBox.Items.Add(Color.Green);
-            ColorComboBox.Items.Add(Color.Blue);
-            ColorComboBox.Items.Add(Color.White);
-            ColorComboBox.SelectedIndex = 1;
 
-            /*//Создаем кнопку
-            var button = new Button();
-            button.Text = "Сменить заголовок окна";
-            button.Size = new Size(150, 25);
-            button.Location = new Point(150, 150);
+            // Загрузка файла с контактами
+            //
+            _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
 
-            //Подписываем кнопку на обработчик
-            button.Click += Button_Click;
-            //Помещаем кнопку на форму
-            this.Controls.Add(button);*/
-        }
-        
-        //Обработчик события нажатия кнопки
-        private void Button_Click(object sender, EventArgs e)
-        {
-            //Здесь пишем код, который должен выполняться
-            //Каждый раз при нажатии на кнопку.
-            this.Text = "Новый заголовок";
+            _project.ContactsList.Sort();
+            // Загрузка в listBox контактов из ContactList
+            //
+            listBox1.DataSource = _project.ContactsList;
+            listBox1.DisplayMember = "Surname";
+            listBox1.ValueMember = "Name";
+
+            Project birthContact = Project.Birthday(_project, DateTime.Today);
+            if (birthContact.ContactsList.Count != 0)
+            {
+                panel2.Visible = true;
+                for (int i = 0; i < birthContact.ContactsList.Count; i++)
+                {
+                    label9.Text = label9.Text + birthContact.ContactsList[i].Surname + ", ";
+                }
+            }
+            else panel2.Visible = false;
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
-        private void label1_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Вывод выбранного элемента из ListBox
+        /// </summary>
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(listBox1.SelectedItem != null)
+            {
+                Contact c = (Contact)listBox1.SelectedItem;
+                textBoxSurename.Text = c.Surname;
+                textBoxName.Text = c.Name;
+                textBoxEmail.Text = c.Email;
+                textBoxIdvkcom.Text = c.IDVkcom;
+                textBoxPhone.Text = c.phoneNumber.Number;
+                dateTimePicker1.Value = c.DateOfBirth;
+            }
+        }
+
+        /// <summary>
+        /// Функция добавления контакта.
+        /// </summary>
+        private void AddContact()
+        {
+            var newForm = new AddEditForm();
+
+            //Создаем переменную, в которую помещаем результат взаимодействия пользователя с формой.
+            var resultOfDialog = newForm.ShowDialog();
+
+            //Если пользователь нажал ОК, то вносим исправленные данные.
+            if (resultOfDialog == DialogResult.OK)
+            {
+                var contact = newForm.Contact;
+                _project.ContactsList.Add(contact);
+                _project.ContactsList.Sort();
+                ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+
+                listBox1.DataSource = null;
+                listBox1.DataSource = _project.ContactsList;
+                listBox1.DisplayMember = "Surname";
+            }
+        }
+
+        /// <summary>
+        /// Функция, выполняющая редактирование данных.
+        /// </summary>
+        private void EditContact()
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose the contact to edit.", "Edit");
+            }
+
+            // Открытие окна, загрузка выбранного контакта
+            //
+            Contact selectedContact = (Contact)listBox1.SelectedItem;
+            var newForm = new AddEditForm();
+            newForm.Contact = selectedContact;
+
+            var resultOfDialog = newForm.ShowDialog();
+
+            if(resultOfDialog == DialogResult.OK)
+            {
+                _project.ContactsList[listBox1.SelectedIndex] = newForm.Contact;
+                ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                UpdateListBox();
+            }
 
         }
 
-        private void NumberTextBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Функция удаления контакта.
+        /// </summary>
+        private void RemoveContact()
         {
-            //Получаем текст из текстового поля
-            // в переменную типа string
-            string text = NumberTextBox.Text;
-            int number;
-            if (int.TryParse(text, out number))
+            int index = listBox1.SelectedIndex;
+            if (index == -1)
             {
-                if (number >= 0 && number <= 100)
+                MessageBox.Show("Choose the contact to remove.", "Remove");
+            }
+
+            // Если список не пуст.
+            //
+            if (_project.ContactsList.Count > 0)
+            {
+                string removeThisContact = "Do you really want to remove this contact: " + textBoxSurename.Text + "?";
+
+                var result = MessageBox.Show(removeThisContact, "Remove", MessageBoxButtons.OKCancel);
+
+                if (result == DialogResult.OK)
                 {
-                    NumberTextBox.BackColor = Color.White;
-                    this.Text = number.ToString();
+                    _project.ContactsList.RemoveAt(index);
+                    ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                    UpdateListBox();
                 }
-                else
-                {
-                    NumberTextBox.BackColor = Color.LightSalmon;
-                }
+                
+            }
+        }
+
+
+        /// <summary>
+        /// Обновление ListBox
+        /// </summary>
+        private void UpdateListBox()
+        {
+            listBox1.DataSource = null;
+            if(_project != null)
+            {
+                listBox1.DataSource = _project.ContactsList;
+                listBox1.DisplayMember = "Surname";
+            }
+        }
+
+        /// <summary>
+        /// Вызов окна добавления контакта
+        /// </summary>
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+
+        /// <summary>
+        /// Вызов окна добавления контакта из выпадающего меню
+        /// </summary>
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
+        }
+
+        private void menuItem8_Click(object sender, EventArgs e)
+        {
+            var newForm = new AboutForm();
+            newForm.Show();
+        }
+
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(textBox1.Text != "")
+            {
+                _project = Project.Sort(_project, textBox1.Text);
+                UpdateListBox();
+
+                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
             }
             else
             {
-                NumberTextBox.BackColor = Color.LightSalmon;
+                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+                UpdateListBox();
             }
         }
 
-        private void ColorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Удаление контакта по нажатию клавиши Delete.
+        /// </summary>
+        private void ContactsListBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (ColorComboBox.SelectedIndex == -1)
+            if (e.KeyCode == Keys.Delete)
             {
-                //Если ничего не выбрано, завершаем обработчик
-                return;
+                RemoveContact();
             }
-            Color selectedColor;
-            selectedColor = (Color)ColorComboBox.SelectedItem;
-            this.BackColor = selectedColor;
-        }
-
-        private void VisibilityCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            bool isChecked = VisibilityCheckBox.Checked;
-            ColorComboBox.Visible = isChecked;
         }
     }
-
 }

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using ContactsApp;
 
-namespace ContactsAPP
+namespace ContactsAppBL.UnitTests
 {
-    public class Class1
+    [TestFixture]
+    class ProjectTest
     {
+
     }
 }
