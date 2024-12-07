@@ -188,16 +188,17 @@
             // textBoxSurename
             // 
             this.textBoxSurename.Location = new System.Drawing.Point(84, 0);
-            this.textBoxSurename.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSurename.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSurename.Name = "textBoxSurename";
             this.textBoxSurename.ReadOnly = true;
             this.textBoxSurename.Size = new System.Drawing.Size(565, 22);
             this.textBoxSurename.TabIndex = 12;
+            this.textBoxSurename.TextChanged += new System.EventHandler(this.textBoxSurename_TextChanged);
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(84, 38);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(565, 22);
@@ -206,7 +207,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(84, 111);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(565, 22);
@@ -215,7 +216,7 @@
             // textBoxIdvkcom
             // 
             this.textBoxIdvkcom.Location = new System.Drawing.Point(84, 148);
-            this.textBoxIdvkcom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxIdvkcom.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxIdvkcom.Name = "textBoxIdvkcom";
             this.textBoxIdvkcom.ReadOnly = true;
             this.textBoxIdvkcom.Size = new System.Drawing.Size(565, 22);
@@ -224,7 +225,7 @@
             // textBoxPhone
             // 
             this.textBoxPhone.Location = new System.Drawing.Point(84, 187);
-            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.ReadOnly = true;
             this.textBoxPhone.Size = new System.Drawing.Size(565, 22);
@@ -234,7 +235,7 @@
             // 
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(84, 74);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(565, 22);
             this.dateTimePicker1.TabIndex = 17;
@@ -244,7 +245,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(32, 64);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(363, 532);
             this.listBox1.TabIndex = 0;
@@ -254,7 +255,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(80, 26);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(315, 22);
             this.textBox1.TabIndex = 18;
@@ -273,7 +274,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Location = new System.Drawing.Point(32, 614);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(84, 28);
             this.buttonAdd.TabIndex = 20;
@@ -297,7 +298,7 @@
             this.panel1.Controls.Add(this.textBoxEmail);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Location = new System.Drawing.Point(421, 26);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(651, 273);
             this.panel1.TabIndex = 21;
@@ -305,7 +306,7 @@
             // buttonEdit
             // 
             this.buttonEdit.Location = new System.Drawing.Point(145, 614);
-            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(84, 28);
             this.buttonEdit.TabIndex = 22;
@@ -316,7 +317,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Location = new System.Drawing.Point(257, 614);
-            this.buttonRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRemove.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(84, 28);
             this.buttonRemove.TabIndex = 23;
@@ -330,7 +331,7 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(421, 517);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(651, 80);
             this.panel2.TabIndex = 24;
@@ -370,7 +371,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Menu = this.mainMenu1;
             this.MinimumSize = new System.Drawing.Size(1115, 720);
             this.Name = "MainForm";

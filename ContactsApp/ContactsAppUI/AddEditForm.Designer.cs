@@ -46,111 +46,125 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(86, 79);
+            this.dateTimePicker1.Location = new System.Drawing.Point(115, 97);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(347, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(461, 22);
             this.dateTimePicker1.TabIndex = 29;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(86, 171);
+            this.textBoxPhone.Location = new System.Drawing.Point(115, 210);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(347, 20);
+            this.textBoxPhone.Size = new System.Drawing.Size(461, 22);
             this.textBoxPhone.TabIndex = 28;
             this.textBoxPhone.TextChanged += new System.EventHandler(this.textBoxPhone_TextChanged);
             // 
             // textBoxIdvkcom
             // 
-            this.textBoxIdvkcom.Location = new System.Drawing.Point(86, 139);
+            this.textBoxIdvkcom.Location = new System.Drawing.Point(115, 171);
+            this.textBoxIdvkcom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxIdvkcom.Name = "textBoxIdvkcom";
-            this.textBoxIdvkcom.Size = new System.Drawing.Size(347, 20);
+            this.textBoxIdvkcom.Size = new System.Drawing.Size(461, 22);
             this.textBoxIdvkcom.TabIndex = 27;
             this.textBoxIdvkcom.TextChanged += new System.EventHandler(this.textBoxIdvkcom_TextChanged);
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(86, 109);
+            this.textBoxEmail.Location = new System.Drawing.Point(115, 134);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(347, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(461, 22);
             this.textBoxEmail.TabIndex = 26;
             this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(86, 50);
+            this.textBoxName.Location = new System.Drawing.Point(115, 62);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(347, 20);
+            this.textBoxName.Size = new System.Drawing.Size(461, 22);
             this.textBoxName.TabIndex = 25;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxSurename
             // 
-            this.textBoxSurename.Location = new System.Drawing.Point(86, 19);
+            this.textBoxSurename.Location = new System.Drawing.Point(115, 23);
+            this.textBoxSurename.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSurename.Name = "textBoxSurename";
-            this.textBoxSurename.Size = new System.Drawing.Size(347, 20);
+            this.textBoxSurename.Size = new System.Drawing.Size(461, 22);
             this.textBoxSurename.TabIndex = 24;
             this.textBoxSurename.TextChanged += new System.EventHandler(this.textBoxSurename_TextChanged_1);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(39, 174);
+            this.label6.Location = new System.Drawing.Point(52, 214);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "Phone:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 142);
+            this.label5.Location = new System.Drawing.Point(27, 175);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(71, 16);
             this.label5.TabIndex = 22;
             this.label5.Text = "ID Vk.com:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 112);
+            this.label4.Location = new System.Drawing.Point(60, 138);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 21;
             this.label4.Text = "Email:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 82);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(43, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(59, 16);
             this.label3.TabIndex = 20;
             this.label3.Text = "Birthday:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 53);
+            this.label2.Location = new System.Drawing.Point(56, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 19;
             this.label2.Text = "Name:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 22);
+            this.label1.Location = new System.Drawing.Point(37, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 18;
             this.label1.Text = "Surname:";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(358, 205);
+            this.buttonCancel.Location = new System.Drawing.Point(477, 252);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
             this.buttonCancel.TabIndex = 30;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -158,9 +172,10 @@
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(267, 205);
+            this.buttonOk.Location = new System.Drawing.Point(356, 252);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 28);
             this.buttonOk.TabIndex = 31;
             this.buttonOk.Text = "OK";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -168,9 +183,9 @@
             // 
             // AddEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 249);
+            this.ClientSize = new System.Drawing.Size(609, 306);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.dateTimePicker1);
@@ -185,6 +200,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddEditForm";
             this.Text = "Add/Edit Contact";
             this.Load += new System.EventHandler(this.AddEditForm_Load);

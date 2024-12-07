@@ -28,7 +28,7 @@ namespace ContactsApp
             // Загрузка в listBox контактов из ContactList
             //
             listBox1.DataSource = _project.ContactsList;
-            listBox1.DisplayMember = "Surname";
+            listBox1.DisplayMember = "Magic";
             listBox1.ValueMember = "Name";
 
             Project birthContact = Project.Birthday(_project, DateTime.Today);
@@ -86,7 +86,7 @@ namespace ContactsApp
 
                 listBox1.DataSource = null;
                 listBox1.DataSource = _project.ContactsList;
-                listBox1.DisplayMember = "Surname";
+                listBox1.DisplayMember = "Magic";
             }
         }
 
@@ -156,7 +156,7 @@ namespace ContactsApp
             if(_project != null)
             {
                 listBox1.DataSource = _project.ContactsList;
-                listBox1.DisplayMember = "Surname";
+                listBox1.DisplayMember = "Magic";
             }
         }
 
@@ -240,6 +240,11 @@ namespace ContactsApp
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxSurename_TextChanged(object sender, EventArgs e)
         {
 
         }

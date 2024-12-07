@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ContactsApp
@@ -176,6 +177,12 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Имеются незаполненные поля.");
                 }
+                // Регулярное выражение для проверки корректности E-mail
+                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                if (!Regex.IsMatch(value, emailPattern))
+                {
+                    throw new ArgumentException("E-mail введён некорректно.");
+                }
                 else
                     _email = value;
             }
@@ -203,6 +210,14 @@ namespace ContactsApp
                 }
                 else
                     _idVkcom = value;
+            }
+        }
+
+        public string Magic
+        {
+            get
+            {
+                return _surname + ' ' + _name;
             }
         }
 

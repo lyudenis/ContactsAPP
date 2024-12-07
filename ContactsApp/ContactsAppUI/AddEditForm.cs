@@ -204,13 +204,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                dateTimePicker1.CalendarMonthBackground = Color.LightSalmon;
+                label3.ForeColor = Color.LightSalmon;
+                //dateTimePicker1.BackColor = Color.LightSalmon;
                 dateOfBirthToolTip.Show(_textException, dateTimePicker1,
                     (Point)(dateTimePicker1.Size + new Size(-163, 10)), 1000);
             }
             else
             {
-                dateTimePicker1.CalendarMonthBackground = Color.White;
+                label3.ForeColor = Color.Black;
+                //dateTimePicker1.BackColor = Color.White;
             }
         }
 

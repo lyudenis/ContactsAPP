@@ -23,7 +23,7 @@ namespace ContactsApp
             {
                 // При некорректной длине номера, выводим сообщение
                 //
-                if (value.Length > 12 || value.Length < 10)
+                if (value.Length != 11)
                 {
                     throw new ArgumentException("Номер телефона должен состоять из 11 цифр. Например: 79991234567");
                 }
