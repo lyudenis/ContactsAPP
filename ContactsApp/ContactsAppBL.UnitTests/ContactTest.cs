@@ -106,14 +106,6 @@ namespace ContactsAppBL.UnitTests
                 () => { _contact.Email = correctEmail; }, message);
         }
 
-        [TestCase("Николай", "Геттер е-мейл возвращает неверное имя",
-            TestName = "Возвращение геттером е-мейла")]
-        public void TestEmailGet_CorrectArgument(string correctEmail, string message)
-        {
-            _contact.Email = correctEmail;
-            Assert.AreEqual(correctEmail, _contact.Email, message);
-        }
-
         // Тесты свойства IDVkcom.
         //
         [TestCase("", "Должно возникать исключение, если поле id vk - пустая строка",

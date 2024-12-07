@@ -127,13 +127,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                textBoxSurename.BackColor = Color.LightSalmon;
+                label1.ForeColor = Color.LightSalmon;
+                //textBoxSurename.BackColor = Color.LightSalmon;
                 surnameToolTip.Show(_textException, textBoxSurename,
                     (Point)(textBoxSurename.Size + new Size(-400, 10)), 1000);
             }
             else
             {
-                textBoxSurename.BackColor = Color.White;
+                label1.ForeColor = Color.Black;
+                //textBoxSurename.BackColor = Color.White;
             }
         }
 
@@ -164,13 +166,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                textBoxName.BackColor = Color.LightSalmon;
+                label2.ForeColor = Color.LightSalmon;
+                //textBoxName.BackColor = Color.LightSalmon;
                 nameToolTip.Show(_textException, textBoxName,
                     (Point)(textBoxName.Size + new Size(-400, 10)), 1000);
             }
             else
             {
-                textBoxName.BackColor = Color.White;
+                label2.ForeColor = Color.Black;
+                //textBoxName.BackColor = Color.White;
             }
         }
 
@@ -262,13 +266,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                textBoxPhone.BackColor = Color.LightSalmon;
+                label6.ForeColor = Color.LightSalmon;
+                //textBoxPhone.BackColor = Color.LightSalmon;
                 phoneToolTip.Show(_textException, textBoxPhone,
                     (Point)(textBoxPhone.Size + new Size(-400, 10)), 1000);
             }
             else
             {
-                textBoxPhone.BackColor = Color.White;
+                label6.ForeColor = Color.Black;
+                //textBoxPhone.BackColor = Color.White;
             }
         }
 
@@ -303,13 +309,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                textBoxEmail.BackColor = Color.LightSalmon;
+                label4.ForeColor = Color.LightSalmon;
+                //textBoxEmail.BackColor = Color.LightSalmon;
                 emailToolTip.Show(_textException, textBoxEmail,
                     (Point)(textBoxEmail.Size + new Size(-400, 10)), 1000);
             }
             else
             {
-                textBoxEmail.BackColor = Color.White;
+                label4.ForeColor = Color.Black;
+                //textBoxEmail.BackColor = Color.White;
             }
         }
 
@@ -344,13 +352,15 @@ namespace ContactsApp
             //
             if (countException != 0)
             {
-                textBoxIdvkcom.BackColor = Color.LightSalmon;
+                label5.ForeColor = Color.LightSalmon;
+                //textBoxIdvkcom.BackColor = Color.LightSalmon;
                 idVkToolTip.Show(_textException, textBoxIdvkcom,
                     (Point)(textBoxIdvkcom.Size + new Size(-400, 10)), 1000);
             }
             else
             {
-                textBoxIdvkcom.BackColor = Color.White;
+                label5.ForeColor = Color.Black;
+                //textBoxIdvkcom.BackColor = Color.White;
             }
         }
 
@@ -429,6 +439,16 @@ namespace ContactsApp
             // Ограничение на ввод 11 символов.
             //
             textBoxPhone.MaxLength = 11;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
